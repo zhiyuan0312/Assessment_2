@@ -41,10 +41,11 @@ end
 #DELETE
 delete '/product/:product_id/delete' do
 	@product = Product.find(params[:product_id])
+	@favourite = Favourite.where(product_id: params[:product_id])
 	if @product.user_id == current_user.id
-		@product.delete
+		@product.destroy
 		redirect :"/product"
 	else
-		@error ="You cannot delete products which do not beong to you!"
+		@error ="You cannot delete products which do not belong to you!"
 	end
 end

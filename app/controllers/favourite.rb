@@ -14,7 +14,7 @@ post '/product/:product_id/favourite' do
 		@favourite != nil && @favourite.user_id == current_user.id
 		@error = "You cannont favourite the same item twice!"
 		else
-	@favourite_new = Favourite.create(user_id: current_user.id, product_id: params[:product_id])
+	@favourite_new = Favourite.create(user_id: current_user.id, user_name: current_user.email, product_id: params[:product_id])
 	redirect :"/product"
 	end
 end
