@@ -1,0 +1,8 @@
+<h1>Edit the following product:</h1>
+<form method="post" action="/product/<%= @product.id %>/patch">
+		<input type="hidden" name="_method" value="put">
+		<p>Name: <input type="text" value="<%= @product.name %>" name="edited_name"></p>
+		<p>Description: <textarea rows='4' cols='50' name="edited_description"><%= @product.description %></textarea></p>
+		<p>Price: <input type="text" value="<%= @product.price %>" name="edited_price"></p>
+		<input class="myButton" type="submit" value="Submit changed question"></p>
+</form>

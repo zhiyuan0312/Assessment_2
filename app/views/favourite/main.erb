@@ -1,0 +1,18 @@
+<h1>List of your favourite products:</h1>
+	<table>
+		<% @my_favourite.each do |favourite| %>
+			<tr>
+				<td>
+					<p>Name: <%= favourite.product.name %></p>
+					<p>Description: <%= favourite.product.description %></p>
+					<p>Price: <%= favourite.product.price %></p>
+
+					<form method="post" action="/user/<%= current_user.id %>/favourite/<%= favourite.id %>/delete">
+				    	<input type="hidden" name="_method" value="delete">
+				    	<input class="myButton" type="submit" value="Delete">
+				    </form>
+					=============================================
+				</td>
+			</tr>
+			<% end %>
+	</table>

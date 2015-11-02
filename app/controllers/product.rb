@@ -7,7 +7,6 @@ end
 #CREATE new product
 post '/product' do
 	@product = Product.create(name: params[:name],description: params[:description], price: params[:price], user_id: current_user.id)
-	byebug
 	redirect :"/users/main"
 end
 
@@ -42,7 +41,6 @@ end
 #DELETE
 delete '/product/:product_id/delete' do
 	@product = Product.find(params[:product_id])
-	byebug
 	if @product.user_id == current_user.id
 		@product.delete
 		redirect :"/product"
