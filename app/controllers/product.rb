@@ -14,6 +14,7 @@ end
 #INDEX
 get '/product' do
 	@product = Product.all.order(:id)
+	@user = User.all
 	erb :"/products/main"
 end
 
@@ -23,12 +24,29 @@ end
 
 #EDIT
 get '/:product_id/edit' do
+	@product = Product.find(params[:product_id])
+	if @product.user_id == current_user.id
+	erb :"/products/edit"
+		else
+	@error = "You cannot edit products which do not belong to you!"
+	end
 end
 
 #UPDATE
-put '/product/:product_id' do
+put '/product/:product_id/patch' do
+	@product = Product.find(params[:product_id])
+	@product.update(name: params[:edited_name], description: params[:edited_description], price: params[:edited_price])
+	redirect :"/product"
 end
 
 #DELETE
-delete '/product/:product_id' do
+delete '/product/:product_id/delete' do
+	@product = Product.find(params[:product_id])
+	byebug
+	if @product.user_id == current_user.id
+		@product.delete
+		redirect :"/product"
+	else
+		@error ="You cannot delete products which do not beong to you!"
+	end
 end

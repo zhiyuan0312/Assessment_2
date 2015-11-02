@@ -7,13 +7,13 @@
 					<p>Description: <%= product.description %></p>
 					<p>Price: <%= product.price %></p>
 					<p>Posted by: <%= product.user.email %></p>
-
-					<% if product.user_id.find_by(user_id: session['user_id']) %>
-					    <form method="post" action="/questions/<%= question.id %>/vote/<%=question.question_votes.find_by(user_id: session['user_id']).id%>">
-					    	<input type="hidden" name="_method" value="delete">
-					    	<input class="myButton" type="submit" value="Edit">
-					    </form>
-					    <% end%>
+				    <form method="get" action="/<%= product.id %>/edit">
+				    	<input class="myButton" type="submit" value="Edit">
+				    </form>
+				    <form method="post" action="/product/<%= product.id %>/delete">
+				    	<input type="hidden" name="_method" value="delete">
+				    	<input class="myButton" type="submit" value="Delete">
+				    </form>
 					---------------------------------------------
 				</td>
 			</tr>
