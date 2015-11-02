@@ -16,5 +16,8 @@
 		<p><input class="myButton" type="submit" value="View all my favourite products"></p>
 		</form>
 
+		<form method="get" action="/user/<%= current_user.id %>/popular_product">
+		<p><input class="myButton" type="submit" value="Who likes my product?"></p>
+		</form>
 
 </div>

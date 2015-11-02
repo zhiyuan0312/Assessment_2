@@ -58,3 +58,16 @@ post '/users/logout' do
 	session[:user_id] = nil
 	redirect :"/"
 end
+
+#show all my products which has been favourite by other users
+get '/user/:user_id/popular_product' do
+	product_num = []
+	@all_favourite = Favourite.all
+	@my_products = Product.where(user_id: current_user.id)
+	@my_products.each do |x|
+			product_num << x.id
+	@popular_product = @all_favourite.where(product_id: [product_num])
+	end
+	byebug
+	erb :"/users/popular_product"
+end
