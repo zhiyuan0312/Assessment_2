@@ -1,2 +1,12 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+	  <title>Login Form</title>
+	    <div class="login">
+	      <h1 id="login_title">Login to Susah.my</h1>
+	      <form id method="post" action="/login">
+	        <p><input id="login_box" type="text" name="email" value="" placeholder="Username or Email"></p>
+	        <p><input id="login_box" type="password" name="password" value="" placeholder="Password"></p>
+	        <p class="submit"><input class="myButton" type="submit" name="commit" value="Login"></p>
+	      </form>
+	      <form method="get" action="/users/new">
+	     	 <p><input class="myButton" type="submit" value="Sign Up"></p>
+	     </form>
+	    </div>

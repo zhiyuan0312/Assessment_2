@@ -1,0 +1,15 @@
+<div class="welcome">
+	<h1 id="login_title">Welcome to Susah.my! <%= current_user.email %></h1>
+		<form method="post" action="/users/logout">
+		<p><input class="myButton" type="submit" value="Log Out"></p>
+		</form>
+
+		<form method="get" action="/product/new">
+		<p><input class="myButton" type="submit" value="Add new product"></p>
+		</form>
+
+		<form method="get" action="/product">
+		<p><input class="myButton" type="submit" value="View all products"></p>
+		</form>
+
+</div>
