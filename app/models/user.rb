@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	#e.g., User.authenticate('zen@hotmail.com','ilovecoding')
 	has_many :products
 	has_many :favourites
+	belongs_to :favourite
 	
     validates :email, uniqueness: true, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 

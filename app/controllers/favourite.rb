@@ -8,7 +8,6 @@ end
 post '/product/:product_id/favourite' do
 	@product = Product.find(params[:product_id])
 	@favourite = Favourite.find_by(product_id: params[:product_id], user_id: current_user.id)
-	byebug
 	if @product.user_id == current_user.id
 	@error = "You cannot add your own products to favourite!"
 	elsif 

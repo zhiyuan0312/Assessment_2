@@ -68,6 +68,5 @@ get '/user/:user_id/popular_product' do
 			product_num << x.id
 	@popular_product = @all_favourite.where(product_id: [product_num])
 	end
-	byebug
 	erb :"/users/popular_product"
 end
